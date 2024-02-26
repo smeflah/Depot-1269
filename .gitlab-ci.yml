@@ -1,0 +1,21 @@
+image: python:3.9
+
+stages:
+  - test
+  - build
+
+before_script:
+  - python -V  # Check python version
+  - pip install -r requirements.txt  # Install dependencies
+
+test:
+  stage: test
+  script:
+    - python -m unittest discover tests  # Run tests
+
+build:
+  stage: build
+  script:
+    - echo "Building Python project..."
+    # Add any build commands you need. For Python, this might just be syntax checking or compiling if you're using Cython, etc.
+    # For example, for a simple script you might not have a 'build' step per se.
